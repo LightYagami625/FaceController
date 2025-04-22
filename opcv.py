@@ -1,11 +1,13 @@
 import cv2
+import mediapipe as mp
 
 face_cap = cv2.CascadeClassifier("E:/Python idle/Lib/site-packages/cv2/data/haarcascade_frontalface_default.xml")
-face_cap = cv2.CascadeClassifier("D:/SWAYAM/OpenCV/.venv/Lib/site-packages/cv2/data/haarcascade_eye_tree_eyeglasses.xml")
+face_cap = cv2.CascadeClassifier("D:/SWAYAM/OpenCV/.venv/Lib/site-packages/cv2/data/haarcascade_smile.xml")
 
 video_cap = cv2.VideoCapture(0)
 while True:
     ret, video_data = video_cap.read()
+    video_data = cv2.flip(video_data, 1)
     col = cv2.cvtColor(video_data, cv2.COLOR_BGR2GRAY)
     faces = face_cap.detectMultiScale(
         col,
