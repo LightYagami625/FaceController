@@ -5,6 +5,16 @@ from comtypes import CLSCTX_ALL
 from math import hypot
 import numpy as np
 import speech_recognition as sr
+from flask import Flask, request, jsonify, render_template
+import os
+# import yt_dlp
+'''
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+'''
 
 # Initialize Mediapipe Hand Tracking
 mp_hands = mp.solutions.hands
